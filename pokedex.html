@@ -423,10 +423,9 @@ img {vertical-align: middle;}
         <div class="menu-wrap">
           <nav>
             <ul class="menu-text">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Pokedex</a></li>
-              <li><a href="#">Games</a></li>
-              <li><a href="#">Campaign/Event</a></li>
+              <li><a id="header-link" href="#">Home</a></li>
+              <li><a id="pokedex-link" href="#">Pokedex</a></li>
+              <li><a id="search-link" href="#">Search</a></li>
             </ul>
           </nav>
         </div>
@@ -740,7 +739,20 @@ function showSlides() {
         });
       });
     });
-    </script>
+
+    headerLink.addEventListener("click", () => {
+    smoothScroll("site-header");
+  });
+
+  pokedexLink.addEventListener("click", () => {
+    smoothScroll("pokedex-container");
+  });
+
+  searchLink.addEventListener("click", () => {
+    smoothScroll("search");
+  });
+
+</script>
     
 </div>
 
