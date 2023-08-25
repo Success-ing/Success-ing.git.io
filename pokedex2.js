@@ -3,9 +3,7 @@ const url = "https://pokeapi.co/api/v2/pokemon";
 const pokemons_number = 151;
 const search = document.getElementById("search");
 const form = document.getElementById("form");
-
 let pokemons = [];
-
 const removePokemon = () => {
     const pokemonELs = document.getElementsByClassName("pokemon");
     let removablePokemons = [];
@@ -15,23 +13,25 @@ const removePokemon = () => {
     }
     removablePokemons.forEach((remPoke) => remPoke.remove());
 };
-
 const getPokemon = async (id) => {
     const searchPokemons = pokemons.filter((poke) => poke.name === id);
     removePokemon();
     displayPokemon(searchPokemons);
 };
 
-//const getAllPokemon = async (id) => {
-   // const res = await fetch(`${url}/${id}`);
-   // const pokemon = await res.json();
-   // pokemons = [...pokemons, {
-   //     name: pokemon.name,
-    //    id: pokemon.id,
-    //    image: pokemon.sprites.front_default,
-    //    type: pokemon.types.map((type) => type.type.name).join(', ')
- //   }];
-//};
+// This will slow down your page display time, 
+// and it is duplicate with fetchPokemon() below.
+
+// const getAllPokemon = async (id) => {
+//     const res = await fetch(`${url}/${id}`);
+//     const pokemon = await res.json();
+//     pokemons = [...pokemons, {
+//         name: pokemon.name,
+//         id: pokemon.id,
+//         image: pokemon.sprites.front_default,
+//         type: pokemon.types.map((type) => type.type.name).join(', ')
+//     }];
+// };
 
 const fetchPokemon = () => {
     const promises = [];
@@ -46,8 +46,8 @@ const fetchPokemon = () => {
             id: data.id,
             image: data.sprites.front_default,
             type: data.types.map((type) => type.type.name).join(', ')
-        }));
-        displayPokemon(pokemons);
+        })); 
+        displayPokemon(pokemons); 
     });
 };
 
@@ -73,31 +73,29 @@ const displayPokemon = (pokemon) => {
 };
 
 const fetchPokemons = async () => {
-    //for (let i = 1; i <= pokemons_number; i++) {
-    //    await getAllPokemon(i);
-   // }
-   // fetchPokemon();
+    // No longer need this
+    // for (let i = 1; i <= pokemons_number; i++) {
+    //     await getAllPokemon(i);
+    // }
+
+    fetchPokemon();
 };
 
 fetchPokemons();
-
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const searchTerm = search.value; 
     if (searchTerm) {
         const searchResult = pokemons.find(pokemon => pokemon.name === searchTerm.toLowerCase());
-
         if (searchResult) {
             const pokemonCardHTML = createPokemonCard(searchResult);
             poke_container.innerHTML = pokemonCardHTML;
         } else {
             poke_container.innerHTML = "<p>No matching Pokemon found.</p>";
         }
-
         search.value = "";
     }
 });
-
 function createPokemonCard(pokemon) {
     return `
         <div class="pokemon">
