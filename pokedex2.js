@@ -1,6 +1,6 @@
 const poke_container = document.getElementById("poke_container");
 const url = "https://pokeapi.co/api/v2/pokemon";
-const pokemons_number = 151;
+const pokemons_number = 906;
 const search = document.getElementById("search");
 const form = document.getElementById("form");
 let pokemons = [];
@@ -35,7 +35,7 @@ const getPokemon = async (id) => {
 
 const fetchPokemon = () => {
     const promises = [];
-    for (let i = 1; i <= 150; i++) {
+    for (let i = 1; i <= 905; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
