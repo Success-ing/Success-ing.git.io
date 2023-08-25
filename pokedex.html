@@ -424,9 +424,9 @@ img {vertical-align: middle;}
           <nav>
             <ul class="menu-text">
               <li><a href="#">Home</a></li>
-              <li><a href="#">Pokedex</a></li>
-              <li><a href="#">Games</a></li>
-              <li><a href="#">Campaign/Event</a></li>
+              <li><a href="pokedex.html#search">Pokedex</a></li>
+              <li><a href="#">Icon</a></li>
+
             </ul>
           </nav>
         </div>
@@ -682,7 +682,7 @@ function showSlides() {
 	</style>
 
 
-
+<div>
  
         <div class="Icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
@@ -697,6 +697,7 @@ function showSlides() {
 	    <div class:"container">
 		    <div id="poke_container" class="poke_container"></div>
 	    </div>
+    </div>
                 
 
                 </div>
@@ -725,23 +726,7 @@ function showSlides() {
 
 <div class="pokedex-container"><script src="pokedex2.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const pokemonListItems = document.querySelectorAll(".search");
-    
-      pokemonListItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          const targetId = item.getAttribute("data-target");
-          const targetElement = document.getElementById(targetId);
-    
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-      });
-    });
-    </script>
-    
+
 </div>
 
 
