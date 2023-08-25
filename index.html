@@ -6,23 +6,25 @@
     <title>Introduction</title>
 
 </head>
-<body>
+    
+<body style=font-size:40px>
     <h1 class="introduction">Welcome to My Pokedex</h1>
-    <p>This is a simple Pokedex web application made by Success-ing group</p>
+    <p>This is a simple Pokedex web application made by Success-ing group.</p>
     <p>Now, you can find all the Pokemon you want on this website!</p>
 
-    <a href="pokedex.html"><button>Let's take a look!</button></a>
-    <p>Here is be the page that display and let you search the pokemon you want</p>
+    
+    <p>Here is be the page that display and let you search the pokemon you want!</p>
+    <a href="pokedex.html"><button class="btn">Let's take a look!</button></a>
         <!-- This is where the Pokemon cards will be display and search -->
 
 <style>
     .introduction{
         background: linear-gradient(
         to right,
-        #bbb1d2 20%,
-        #ee8c14 30%,
-        #c0ea38b6 70%,
-        #e082f7 80%
+        #a7d1df 20%,
+        #c3dbc2 30%,
+        #e4cfb4 70%,
+        #fcded9 80%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -39,6 +41,71 @@
         background-position: 100% 50%;
     }
     }
+    
+
+button {
+	margin: auto;
+	border-radius: 20px;
+	background-color: #667292;
+	box-shadow: 10px 15px 40px #36486b;
+	width: 300px;
+	height: 100px;
+	font-size: 50px;
+	font-family: cambria;
+	color: #bccad6;
+	border: none;
+}
+
+button:hover {
+	border: none;
+	background-color: #8d9db6;
+	opacity: 1;
+	color: #36486b;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	position: ;
+}
+
+.btn:hover {
+	transition: 0.5s ease-in-out;
+	background: #8d9db6;
+}
+
+button {
+	--color1: #36486b;
+	--color2: #bccad6;
+	font-family: cambria;
+	text-align: center;
+	font-size: 46px;
+	background: repeating-linear-gradient(
+		45deg,
+		var(--color1),
+		var(--color1) 30px,
+		var(--color2) 30px,
+		var(--color2) 60px
+	);
+	background-clip: text;
+	color: transparent;
+	-webkit-background-clip: text;
+	animation: 40s linear 0s infinite move;
+}
+
+@keyframes move {
+	from {
+		background-position: 0px;
+	}
+
+	to {
+		background-position: 1000px;
+	}
+}
+
+
 
 </style>
 </body>
