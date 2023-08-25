@@ -22,16 +22,16 @@ const getPokemon = async (id) => {
     displayPokemon(searchPokemons);
 };
 
-const getAllPokemon = async (id) => {
-    const res = await fetch(`${url}/${id}`);
-    const pokemon = await res.json();
-    pokemons = [...pokemons, {
-        name: pokemon.name,
-        id: pokemon.id,
-        image: pokemon.sprites.front_default,
-        type: pokemon.types.map((type) => type.type.name).join(', ')
-    }];
-};
+//const getAllPokemon = async (id) => {
+   // const res = await fetch(`${url}/${id}`);
+   // const pokemon = await res.json();
+   // pokemons = [...pokemons, {
+   //     name: pokemon.name,
+    //    id: pokemon.id,
+    //    image: pokemon.sprites.front_default,
+    //    type: pokemon.types.map((type) => type.type.name).join(', ')
+ //   }];
+//};
 
 const fetchPokemon = () => {
     const promises = [];
@@ -41,13 +41,13 @@ const fetchPokemon = () => {
     }
 
     Promise.all(promises).then((results) => {
-        const pokemon = results.map((data) => ({
+        pokemons = results.map((data) => ({
             name: data.name,
             id: data.id,
             image: data.sprites.front_default,
             type: data.types.map((type) => type.type.name).join(', ')
         }));
-        displayPokemon(pokemon);
+        displayPokemon(pokemons);
     });
 };
 
@@ -73,10 +73,10 @@ const displayPokemon = (pokemon) => {
 };
 
 const fetchPokemons = async () => {
-    for (let i = 1; i <= pokemons_number; i++) {
-        await getAllPokemon(i);
-    }
-    fetchPokemon();
+    //for (let i = 1; i <= pokemons_number; i++) {
+    //    await getAllPokemon(i);
+   // }
+   // fetchPokemon();
 };
 
 fetchPokemons();
